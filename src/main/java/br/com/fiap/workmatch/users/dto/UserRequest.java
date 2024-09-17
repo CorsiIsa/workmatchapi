@@ -8,7 +8,7 @@ public record UserRequest(
         String name,
         LocalDateTime dateOfBirth,
         String genero,
-        String PhoneNumber,
+        String phoneNumber,
         String email,
         String password,
         String role
@@ -19,7 +19,7 @@ public record UserRequest(
                 .name(name)
                 .dateOfBirth(dateOfBirth)
                 .genero(genero)
-                .phoneNumber(PhoneNumber)
+                .phoneNumber(phoneNumber)
                 .email(email)
                 .password(password)
                 .createdAt(LocalDateTime.now())

@@ -9,7 +9,7 @@ public record UserResponse (
         Long id,
         String name,
         String genero,
-        String PhoneNumber,
+        String phoneNumber,
         String email,
         LocalDateTime createdAt,
         String role
