@@ -26,4 +26,5 @@ public class User {
     String avatar;
     LocalDateTime createdAt;
     LocalDateTime updatedAt;
+    String role;
 }

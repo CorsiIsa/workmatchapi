@@ -11,7 +11,8 @@ public record UserResponse (
         String genero,
         String PhoneNumber,
         String email,
-        LocalDateTime createdAt
+        LocalDateTime createdAt,
+        String role
 ) {
     public static UserResponse from(User user) {
         return new UserResponse(
@@ -20,7 +21,8 @@ public record UserResponse (
                 user.getGenero(),
                 user.getPhoneNumber(),
                 user.getEmail(),
-                user.getCreatedAt()
+                user.getCreatedAt(),
+                user.getRole()
         );
     }
 }

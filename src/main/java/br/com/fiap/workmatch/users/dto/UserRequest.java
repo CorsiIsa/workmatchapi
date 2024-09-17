@@ -10,7 +10,8 @@ public record UserRequest(
         String genero,
         String PhoneNumber,
         String email,
-        String password
+        String password,
+        String role
         
 ) {
     public User toModel() {
@@ -23,6 +24,7 @@ public record UserRequest(
                 .password(password)
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
+                .role(role)
                 .build();
     }
 }
