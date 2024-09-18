@@ -20,7 +20,7 @@ public class OpportunityService {
         return repository.save(post);
     }
 
-    public List<Opportunity> findByName(String title){
+    public List<Opportunity> findByTitleContainingIgnoreCase (String title){
         return repository.findByTitleContainingIgnoreCase(title);
     }
 }

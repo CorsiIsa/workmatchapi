@@ -31,8 +31,8 @@ public class OpportunityController {
     UserRepository userRepository;
 
     @GetMapping("/{title}")
-    public List<Opportunity> findByTitle(@RequestParam String name){
-        return service.findByName(name);
+    public List<Opportunity> findByTitle(@RequestParam String title){
+        return service.findByTitleContainingIgnoreCase(title);
     }
     @GetMapping
     public Page<Opportunity> findAll(@PageableDefault(size = 3) Pageable pageable){
@@ -40,12 +40,12 @@ public class OpportunityController {
     }
 
     @PostMapping
-    public Opportunity create(@RequestBody OpportunityResponse postRequest){
+    public Opportunity create(@RequestBody OpportunityResponse opportunityResponse){
         var email = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
         var user = userRepository.findByEmail(email).orElseThrow(
                 () -> new UsernameNotFoundException("User not found")
         );
-        Opportunity post = postRequest.toModel(user);
-        return service.create(post);
+        Opportunity opportunity = opportunityResponse.toModel(user);
+        return service.create(opportunity);
     }
 }
