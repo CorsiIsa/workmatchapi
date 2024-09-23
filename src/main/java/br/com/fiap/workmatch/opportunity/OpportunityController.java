@@ -31,8 +31,8 @@ public class OpportunityController {
     @Autowired
     UserRepository userRepository;
 
-    @GetMapping("{title}")
-    public List<Opportunity> findByTitle(@PathVariable String title){
+    @GetMapping("porTitulo")
+    public List<Opportunity> findByTitle(@RequestParam String title){
         return service.findByTitleContainingIgnoreCase(title);
     }
 

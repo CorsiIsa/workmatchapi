@@ -18,7 +18,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.POST,"/opportunity").authenticated()
+                .requestMatchers(HttpMethod.POST,"/opportunity").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.GET, "/users/avatar/**").permitAll()
                 .anyRequest().authenticated()
         );
