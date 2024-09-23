@@ -18,10 +18,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/users").permitAll()
                 .requestMatchers(HttpMethod.POST, "/login").permitAll()
-                .requestMatchers(HttpMethod.POST,"/opportunity").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST,"/opportunity").authenticated()
                 .requestMatchers(HttpMethod.GET, "/users/avatar/**").permitAll()
-                .requestMatchers(HttpMethod.GET, "/opportunity/{title}").authenticated()
-                .requestMatchers(HttpMethod.GET, "/opportunity").authenticated()
                 .anyRequest().authenticated()
         );
         http.csrf(csrf -> csrf.disable());
